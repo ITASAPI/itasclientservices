@@ -6,7 +6,7 @@ HOST: http://yourITASserver:4715/
 ## AccessToken [/AT]
 Model Header containing AccessToken
 
-+ Model 
++ Model
     + Header
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
@@ -17,6 +17,90 @@ Endpoints to get and set the status of ITAS windows services
 # Group Key Value Pair Store
 Save and look up key/value pairs for any use, based on the group they belong to
 
+# Key/Value Pair Store
+
+The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary key/value pairs, organised into groups of similar keys.
+
+## Collection of groups [/kvpstore]
+
+### List all groups [GET]
+
++ Response 200 (application/json)
+    + Attributes (object)
+        + groupsTotal: 2 (number)
+        + data (array [KvpGroup List])
+
+### Create new group [POST]
+
++ Request
+    + Body
+
+            {
+                "groupName": "groupC",
+                "groupDescription": "description for new group"
+            }
+
++ Response 201 (application/json)
+    + Attributes (KvpGroup)
+        + keysTotal: 0 (number)
+
+
+## Single group [/kvpstore/{groupName}]
+
++ Parameters
+    + groupName (required, string, `groupA`) - ID of the group (a precent-encoded string)
+
+### Get details of a group and list all its key/value pairs [GET]
+
++ response 200 (application/json)
+    + Attributes (KvpGroup)
+        + keysTotal: 2 (number)
+        + data (array [KvpKey])
+
+### Create new key/value pair [POST]
+
++ Request
+    + Body
+
+            {
+                "keyName": "key",
+                "keyValue": "new sample string",
+            }
+
++ response 201 (application/json)
+    + Attributes (KvpKey)
+
+
+### Delete a specific group [DELETE]
+
++ Response 200 (application/json)
+    + Attributes (KvpGroup)
+        + response: deleted (string)
+        + keysAffected: 2 (number)
+
+
+
+## Single Key [/kvpstore/{groupName}/{keyName}]
++ Parameters
+    + groupName (required, string, `groupA`) - ID of the group
+    + keyName (required, string, `nameA`) ... Name of the key in a key/value pair
+
+
+### Get a single key/value pair [GET]
+
++ response 200 (application/json)
+    + Attributes (KvpKey)
+
+
+### Delete a specific key [DELETE]
+
++ response 200 (application/json)
+    + Attributes (KvpKey)
+        + response: deleted (string)
+
+
+
+
 # Group Data Functions
 
 
@@ -25,7 +109,7 @@ Retrieve metadata and other information about ITAS Physical Contracts
 
 # Group Codes
 Web services to support creating, reading and updating ITAS Codes
-    
+
 + Response 200 (application/json)
 
 # Group Data Object Definitions
@@ -86,6 +170,31 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 
 ## Pagination (object)
 + Total: 547 (number) - total number of records available
-+ Top: 200 (number) - max number returned per message 
++ Top: 200 (number) - max number returned per message
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
+
+## KvpKey (object)
++ keyName: nameA (string)
++ keyValue: sample string (string)
++ keyUrl: kvpstore/groupA/nameA
++ groupName: groupA (string)
++ groupDescription: sample string value  (string)
++ groupID: 1 (number)
++ groupUrl: kvpstore/groupA (string)
+
+## KvpKey List (object)
++ keyName: nameA (string)
++ keyValue: sample string (string)
++ keyUrl: kvpstore/groupA/nameA
+
+## KvpGroup (object)
++ groupName: groupC (string)
++ groupID: 3 (number)
++ groupDescription: description for new group (string)
++ groupUrl: /kvpstore/groupC (string)
+
+## KvpGroup List (object)
++ groupName: groupC (string)
++ groupID: 3 (number)
++ groupUrl: /kvpstore/groupC (string)
