@@ -15,15 +15,15 @@ Model Header containing AccessToken
 Endpoints to get and set the status of ITAS windows services
 
 # Group Key Value Pair Store
-Save and look up key/value pairs for any use, based on the group they belong to
-
-# Key/Value Pair Store
 
 The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary key/value pairs, organised into groups of similar keys.
 
 ## Collection of groups [/kvpstore]
 
 ### List all groups [GET]
+
++ Request
+    [AccessToken][]
 
 + Response 200 (application/json)
     + Attributes (object)
@@ -40,6 +40,11 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
                 "groupDescription": "description for new group"
             }
 
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
 + Response 201 (application/json)
     + Attributes (KvpGroup)
         + keysTotal: 0 (number)
@@ -48,9 +53,12 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
 ## Single group [/kvpstore/{groupName}]
 
 + Parameters
-    + groupName (required, string, `groupA`) - ID of the group (a precent-encoded string)
+    + groupName (required, string, `groupA`) - ID of the group
 
 ### Get details of a group and list all its key/value pairs [GET]
+
++ Request
+    [AccessToken][]
 
 + response 200 (application/json)
     + Attributes (KvpGroup)
@@ -67,11 +75,19 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
                 "keyValue": "new sample string",
             }
 
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
 + response 201 (application/json)
     + Attributes (KvpKey)
 
 
 ### Delete a specific group [DELETE]
+
++ Request
+    [AccessToken][]
 
 + Response 200 (application/json)
     + Attributes (KvpGroup)
@@ -88,11 +104,17 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
 
 ### Get a single key/value pair [GET]
 
++ Request
+    [AccessToken][]
+
 + response 200 (application/json)
     + Attributes (KvpKey)
 
 
 ### Delete a specific key [DELETE]
+
++ Request
+    [AccessToken][]
 
 + response 200 (application/json)
     + Attributes (KvpKey)
