@@ -137,22 +137,22 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
 # Group Physical Contract Metadata
 Retrieve metadata and other information about ITAS Physical Contracts
 
-## Query facets [/metadata/contract/physical/{TradingEntityId}/]
-Retrieve distinct values for each property within a set of contracts.
+## Query facets [/metadata/contract/{TradingEntityId}/physical/{Property}]
+Define a subset of contracts from the whole list of contracts within a trading entity using OData filters or the request body. Retrieve distinct values for each property (eg all the departments that occur at least once in that subset).
 
 ### Get metadata [GET]
 
 |property|description|type|max length|notes|constraint|
 |--------|-----------|----|----------|-----|----------|
-|Department||array of `object`||see `Department List` definition||
-|Counterparty||array of `object`||see `ClientAccount List` definition||
-|Trader||array of `object`||see `UserAccount` definition||
-|Commodity||array of `object`||see `Commodity` definition||
-|Terminal||array of `object`||see `Terminal` definition||
-|ContractType|phys01_contype|`string`|1|||
-|ThirdParty||`boolean`||||
-|StockOwner||`object`||Stock Owner delivered as an `AccountHeader` object||
-|ContractDate|phys01_condate|`number`||||
+|Department|phys01_dept|array of `string`|4|||
+|Counterparty|phys01_counterparty|array of `string`|10|||
+|Trader|phys01_trader|array of `string`|3|||
+|Commodity|phys01_commod|array of `string`|3|||
+|Terminal|phys01_terminal|array of `string`|4|||
+|ContractType|phys01_contype|array of `string`|1|||
+|ThirdParty|phys01_thirdparty|array of `boolean`|1|||
+|StockOwner|phys01_seller|array of `string`|10|||
+|ContractDate|phys01_condate|`object`||Anonymous type (see response body)||
 
 
 + Request (application/json)
@@ -160,37 +160,31 @@ Retrieve distinct values for each property within a set of contracts.
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + body
+    + Attributes (Physicals Metadata)
 
-            {
-                "Department": ["9900", "5100", "GBPT"],
-                "Counterparty": ["AFRICA.P"],
-                "Trader": ["JB"],
-                "Commodity": ["ORG", "WHT"],
-                "Terminal": [],
-                "ContractType": ["S"],
-                "Third Party": ["N"],
-                "StockOwner": [],
-                "DateFrom": "2010-02-31T00:00:00Z",
-                "DateTo": ""
-            }
 
 + Parameters
-    + TradingEntityId (optional, string) - identify specific trading entity
+    + TradingEntityId (required, string) - identify specific trading entity
+    + Property (optional, enum[string]) - return only this group of facets
+        + Members
+            + Department (optional, string)
+            + Counterparty (optional, string)
+            + Trader (optional, string)
+            + Commodity (optional, string)
+            + Terminal (optional, string)
+            + ContractType (optional, string)
+            + ThirdParty (optional, string)
+            + StockOwner (optional, string)
+            + ContractDate (optional, string)
 
 + Response 200 (application/json)
-    + Attributes (object)
-        + Department (array [Department List])
-        + Counterparty (array [ClientAccount List])
-        + Trader (array [UserAccount])
-        + Commodity (array [Commodity])
-        + Terminal (array [Terminal])
-        + ContractType (array [string])
-        + Third Party (array [])
-        + StockOwner (array [AccountHeader])
-        + ContractDate (object)
-            + Max: `1980-02-31T00:00:00Z` (string)
-            + Min: `2012-08-01T00:00:00Z` (string)
+    + Attributes (Physicals Metadata)
+
++ Response 400 (application/json)
+    + Attributes (400 Response)
+
++ Response 404 (application/json)
+    + Attributes (404 Response)
 
 
 # Group Codes
@@ -254,48 +248,6 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
 
-## AccountHeader (object)
-+ AccountType: C (string)
-+ AccountId: 00040444.P (string)
-+ AccountDescription: Nigeria Trading Dept (string)
-+ EDICode: ABC1234 (string)
-+ Status: F (string)
-
-## ClientAccount List (object)
-+ ClientAccountId: ABCDEF.P (string)
-+ Title: `ACME Trading Company` (string)
-+ ClientTypeCode: H (string)
-+ Status: O (string)
-+ PrivilegeLevel: 9 (number)
-+ CanBeBuyer: true (boolean)
-+ CanBeSeller: true (boolean)
-+ CanBeAgent: true (boolean)
-+ CanBeShipper: true (boolean)
-+ CanBeDerivativeClient: true (boolean)
-+ CanBeDerivativeBroker: true (boolean)
-+ EDICode: extABCDEF (string)
-
-
-## Commodity (object)
-+ CommodityCodePart1: ORG (string)
-+ CommodityCodePart2: `S1-45` (string)
-+ CommodityCodePart3: FAIRT (string)
-+ CommodityCodePart4: qwe (string)
-+ CommodityCodePart5: ty (string)
-+ CommodityDescription: Organic Golden Fairtrade Sugar (string)
-+ DocumentText: Org Golden S1 45 ICUMSA (string)
-+ CountryCode: MAL (string)
-+ EDICode: ABC1234 (string)
-+ Status: F (string)
-
-## Department List (object)
-+ DepartmentId: 5100 (string)
-+ DepartmentDescription: African Trading (string)
-+ NominalCategoryId: AF (string)
-+ CountryId: GB (string)
-+ EDICode: 1234 (string)
-+ Status: F (string)
-
 ## KvpKey (object)
 + keyName: nameA (string)
 + keyValue: sample string (string)
@@ -321,18 +273,21 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + groupID: 3 (number)
 + groupUrl: /kvpstore/groupC (string)
 
+## Physicals Metadata (object)
++ Department (array [string])
++ Counterparty (array [string])
++ Trader (array [string])
++ Commodity (array [string])
++ Terminal (array [string])
++ ContractType (array [string])
++ Third Party (array [string])
++ StockOwner (array [string])
++ ContractDate (object)
+    + Oldest: 1980-02-31T00:00:00Z (string)
+    + Newest: 2012-08-01T00:00:00Z (string)
+
 ## Pagination (object)
 + Total: 547 (number) - total number of records available
 + Top: 200 (number) - max number returned per message
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
-
-## Terminal (object)
-+ TerminalId: ADEL (string)
-+ TerminalDescription: `Santos-Santa Adelia` (string)
-+ countryCode: BRA (string)
-
-## UserAccount (object)
-+ UserAccountId: JS (string)
-+ UserAccountName: JSMITH (string)
-+ UserAccountDescription: Joseph Smith (string)
