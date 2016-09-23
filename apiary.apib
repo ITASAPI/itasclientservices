@@ -14,13 +14,17 @@ Model Header containing AccessToken
 # Group ITAS Services Control
 Endpoints to get and set the status of ITAS windows services. For full documentation please see: https://hivedome.sharepoint.com/ITAS-NG/ need to add remianing part of uri
 
-# Service Controller Global
+## Service Controller Global
 The Global service controller maintains a list of registered (window services) and has a central view of the statuses of all services.
 
-## Service Register [/service/register]
+## Service Check Status [/Service/CheckStatus/{ServiceName}]
+`GET` Poll to get a status update from the global Service Controller
+### Check Status Service
 
-### Register Update Service [POST]
+
+## Service Register [/Service/Register]
 `POST` This controller is used by services to register and update their details.
+### Register Update Service [POST]
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -52,7 +56,7 @@ The Global service controller maintains a list of registered (window services) a
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
 
-## Service Unregister [/service/unregister/{ServiceName}]
+## Service Unregister [/Service/Unregister/{ServiceName}]
 `PUT` Unregister Service from the Global List
 ### Unregister Service [PUT]
 
