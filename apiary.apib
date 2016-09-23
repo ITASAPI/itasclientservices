@@ -14,7 +14,7 @@ Model Header containing AccessToken
 # Group ITAS Services Control
 Endpoints to get and set the status of ITAS windows services. For full documentation please see: https://hivedome.sharepoint.com/ITAS-NG/ need to add remianing part of uri
 
-## Group Service Controller Global
+# Group Service Controller Global
 The Global service controller maintains a list of registered (window services) and has a central view of the statuses of all services.
 
 ## Service Check Status [/Service/CheckStatus/{ServiceName}]
@@ -52,8 +52,6 @@ The Global service controller maintains a list of registered (window services) a
 
 + Response 404 (application/json)
     + Attributes (404 ServiceResponse)
-
-
 
 
 ## Service Register [/Service/Register]
@@ -111,6 +109,44 @@ The Global service controller maintains a list of registered (window services) a
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 ServiceResponse)
 
+# Group Service Controller Local
+Serve up status information directly without going via the agency of the Global Service Controller.
+
+## Service Check Status [/Service/CheckStatus]
+`GET` The latest status of the windows service that hosts the Local Service Controller
+### Windows Service Status [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ServiceName|Unique Name of Service|`string`|100||Required|
+|MachineName|Machine Service is running on|`string`|100|||
+|DisplayName|Display Name of Service|`string`|100|||
+|Status|Status of Service|`string`|50||`Stopped`, `StartPending`, `StopPending`, `Running`, `ContinuePending`, `PausePending` or `Paused`|
+|UserName|Principal Account Service Runs Under|`string`|50|||
+|ProcessId|Process ID on Machine Running the Service|`number`|||`null` if the service is not running|
+|LastStartDateTime|The Last Time the Service Started|`datetime`||Optional||
+|Url|Enpoint to Directly Query a Service|`string`|255|Optional||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (ServiceController)
+
+
++ Parameters
+    + ServiceName (required, string, `ITAS-NG Email Alert Poll Service`) ... The Unique name of the Service.
+
+
++ Response 200 (application/json)
+    + Attributes (ServiceController)
+
++ Response 400 (application/json)
+    + Attributes (400 ServiceResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 ServiceResponse)
 
 
 # Group Key Value Pair Store
