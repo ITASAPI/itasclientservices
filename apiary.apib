@@ -17,7 +17,7 @@ Endpoints to get and set the status of ITAS windows services. For full documenta
 # Group Service Controller Global
 The Global service controller maintains a list of registered (window services) and has a central view of the statuses of all services.
 
-## Service Check Status [/Service/CheckStatus/{ServiceName}]
+## Check Status [/Service/CheckStatus/{ServiceName}]
 `GET` Poll to get the latest status of a wondows service
 ### Check Service Status [GET]
 
@@ -54,7 +54,7 @@ The Global service controller maintains a list of registered (window services) a
     + Attributes (404 ServiceResponse)
 
 
-## Service Register [/Service/Register]
+## Register [/Service/Register]
 `POST` This controller is used by services to register and update their details.
 ### Register Update Service [POST]
 
@@ -88,7 +88,7 @@ The Global service controller maintains a list of registered (window services) a
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 ServiceResponse)
 
-## Service Unregister [/Service/Unregister/{ServiceName}]
+## Unregister [/Service/Unregister/{ServiceName}]
 `PUT` Unregister Service from the Global List
 ### Unregister Service [PUT]
 
@@ -112,7 +112,7 @@ The Global service controller maintains a list of registered (window services) a
 # Group Service Controller Local
 Serve up status information directly without going via the agency of the Global Service Controller.
 
-## Service Check Status [/Service/CheckStatus]
+## Check Status [/Service/CheckStatus]
 `GET` The latest status of the windows service that hosts the Local Service Controller
 ### Windows Service Status [GET]
 
