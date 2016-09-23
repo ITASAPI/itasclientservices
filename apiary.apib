@@ -53,15 +53,16 @@ The Global service controller maintains a list of registered (window services) a
     + Attributes (404 Response)
 
 ## Service Unregister [/service/unregister/{ServiceName}]
-
-### Unregister Service [PUT]
 `PUT` Unregister Service from the Global List
+### Unregister Service [PUT]
 
 + Request (application/json)
     + Header
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
++ Parameters
+    + ServiceName (required, string, `ITAS-NG Email Alert Poll Service`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes (200 SuccessResponse)
