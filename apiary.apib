@@ -11,6 +11,33 @@ Model Header containing AccessToken
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
+# Group ITAS Users
+Endpoints pertaining to Itas users for internal users only
+
+## IsUserAdmin [/User/IsUserAdmin/{UserGuid}]
+'GET'  to see if the user is an administrator
+
+### IsUserAdmin [GET]
+
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
++ Parameters
+    + UserGuid (required, string, `8bc09444-b44c-417c-a80b-c129bf6dfd3f`) ... ITAS NG User GUID
+
++ Response 200 (application/json)
+    + Attributes (UserAdminBool)
+
++ Response 400 (application/json)
+    + Attributes (400 ServiceResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 ServiceResponse)
+
 # Group ITAS Services Control
 Endpoints to get and set the status of ITAS windows services. For full documentation please see: <a href="https://hivedome.sharepoint.com/ITAS-NG/_layouts/15/WopiFrame.aspx?sourcedoc=%7B3798EB98-26AA-4179-8830-3BFDB8356168%7D&file=Diagnostics%20Module%20and%20Service%20Monitoring%20API.docx&action=default"> Link</a>
 
@@ -366,6 +393,10 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + Severity: Error (string)
 + Message: `API5068 - API : The value sent in the querystring variable {Property} is not allowed.` (string)
 
+## 404 NotFound (object)
++ Severity: Error (string)
++ Message: `API5067 - API : The value {inputValue} does not exist.` (string)
+
 ## 404 Response (object)
 + Response
     + Value: 404 Objet not found (string)
@@ -386,6 +417,9 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
+
+## UserAdminBool
++ IsUserAdmin: true (boolean)
 
 ## KvpKey (object)
 + keyName: nameA (string)
@@ -440,5 +474,3 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + ProcessId: 13896 (number)
 + LastStartDateTime: `2016-06-27T09:24:54` (string)
 + Url: null (string)
-
-
