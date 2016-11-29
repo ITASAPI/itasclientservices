@@ -590,6 +590,60 @@ Web services to support creating, reading and updating ITAS Codes
 # Group Data Object Definitions
 List of re-usable Data Objects referenced as `object` types. Note that these endpoints are not accessable and only here for reference purposes.
 
+## Contract Currency [/ContractCurrency]
+A multipurpose object used by several endpoints
+### ContractCurrency [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyCode|Currency Code|`string`|3||Required|
+|ConValContract|Contract Value Contract|||||
+|CostValContract|Cost Value Contract|||||
+|ComsnValContract|Commission Value Contract|||||
+|PolValContract|Polarisation Value Contract|||||
+|FOContract|F&O Contract|||||
+|FXContract|FX Contract|||||
+|MktValContract|Market Value Contract|||||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (ValuesInContractCcy)
+
+## Functional Currency [/FunctionalCurrency]
+A multipurpose object used by several endpoints
+### FunctionalCurrency [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyCode|Currency Code|`string`|3||Required|
+|ConValFunctional|Contract Value Functional|||||
+|CostValFunctional|Cost Value Functional|||||
+|ComsnValFunctional|Commission Value Functional|||||
+|PolValFunctional|Polarisation Value Functional|||||
+|FOFunctional|F&O Functional|||||
+|FXFunctional|FX Functional|||||
+|MktValFunctional|Market Value Functional|||||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (ValuesInFunctionalCcy)
+
+## PnL Currency [/PnLCurrency]
+A multipurpose object used by several endpoints
+### PnLCurrency [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyCode|Currency Code|`string`|3||Required|
+|ConValPnL|Contract Value PnL|||||
+|CostValPnL|Cost Value PnL|||||
+|ComsnValPnL|Commission Value PnL|||||
+|PolValPnL|Polarisation Value PnL|||||
+|FOPnL|F&O PnL|||||
+|FXPnL|FX PnL|||||
+|MktValPnL|Market Value PnL|||||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (ValuesInPnLCcy)
+
 # Data Structures
 
 ## 200 SuccessResponse (object)
