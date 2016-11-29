@@ -508,6 +508,79 @@ The body of the request can contain multiple values delimited by double pipe "&#
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
 
+## Physical Trades Valuation Results Summary [/Valuation/Physical/TradeValuationSummary/{RequestId}]
+`GET` Summary Valuations from Request Query
+### Physical Trades Valuation Results Summary  [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`|||Required|
+|<b>CounterpartyList</b>||[array]||||
+|CounterpartyCode|Counterparty Code|`string`|10|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>CommodityList</b>||[array]|
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>TraderList</b>||[array]|
+|TraderCode|Trader Code|`string`|3|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>DepartmentList</b>||[array]|
+|DepartmentCode|Department Code|`string`|4|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>PaymentTermList</b>||[array]|
+|PaymentTermCode|Payment Term Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ContractTermList</b>||[array]|
+|ContractTermCode|Contract Term Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ContractTermPortList</b>||[array]|
+|ContractTermPortCode|Contract Term Port Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ShipmentStatusList</b>||[array]|
+|ShipmentStatusCode|Shipment Status Code|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>TradingEntityList</b>||[array]|
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+
++ Parameters
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (PhysicalTradeValuesResultsSum)
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
 
 # Group Codes
 Web services to support creating, reading and updating ITAS Codes
@@ -609,6 +682,36 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 ## UserAdminBool
 + IsUserAdmin: true (boolean)
 
+## CommodityValueList (object)
++ CommodityFullCode: CHE||CASO||47||QWE||RTY (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## ContractTermValueList (object)
++ ContractTermCode: DEL (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## ContractTermPortValueList (object)
++ ContractTermPortCode: LIV (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## CounterpartyValueList (object)
++ CounterpartyCode: ABANI.P (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## DepartmentValueList (object)
++ DepartmentCode: NAD (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
 ## KvpKey (object)
 + keyName: nameA (string)
 + keyValue: sample string (string)
@@ -652,6 +755,12 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + Top: 200 (number) - max number returned per message
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
+
+## PaymentTermValueList (object)
++ PaymentTermCode: INV30 (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## PhysicalTradeValRequest (object)
 + TradingEntityId: `JT||DT` (string)
@@ -697,6 +806,18 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + ContractCurrency (ValuesInContractCcy)
 + FunctionalCurrency (ValuesInFunctionalCcy) 
 
+## PhysicalTradeValuesResultsSum (object)
++ ResquestId: 10001 (string)
++ CounterpartyList (array [CounterpartyValueList])
++ CommodityList (array [CommodityValueList])
++ TraderList (array [TraderValueList])
++ DepartmentList (array [DepartmentValueList])
++ PaymentTermList (array [PaymentTermValueList])
++ ContractTermList (array [ContractTermValueList])
++ ContractTermPortList (array [ContractTermPortValueList])
++ ShipmentStatusList (array [ShipmentStatusValueList])
++ TradingEntityList (array [TradingEntityValueList])
+
 ## ServiceController (object)
 + ServiceName: `ITAS-NG Email Alert Poll Service` (string)
 + MachineName: `HDMCLOUD-DEV06` (string)
@@ -706,6 +827,24 @@ List of re-usable Data Objects referenced as `object` types. Note that these end
 + ProcessId: 13896 (number)
 + LastStartDateTime: `2016-06-27T09:24:54` (string)
 + Url: null (string)
+
+## ShipmentStatusValueList (object)
++ ShipmentStatusCode: D (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## TraderValueList (object)
++ TraderCode: JRH (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## TradingEntityValueList (object)
++ TradingEntityId: JT (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## ValuesInContractCcy (object)
 + CurrencyCode: USD (string)
