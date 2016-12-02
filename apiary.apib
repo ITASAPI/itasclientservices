@@ -453,7 +453,6 @@ The body of the request can contain multiple values delimited by double pipe "&#
  
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|<b>PhysicalTradeValue</b>||[array]|
 |ContractId|Contract ID|`string`|10|||
 |TradingEntityId|Trading Entity ID|`string`|2|||
 |<b>PnLCurrency</b>|
@@ -495,7 +494,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (PhysicalTradeValResults)
+        + Data (array [PhysicalTradeValuesResults])
         + Pagination (Pagination)
         + Response (200 SuccessResponse)
         + Messages (ResultsMessage)
@@ -845,9 +844,6 @@ A multipurpose object used by several endpoints
 
 ## PhysicalTradeValResponse (object)
 + RequestId: 10001 (string)
-
-## PhysicalTradeValResults (object)
-+ PhysicalTradeValue (array [PhysicalTradeValuesResults])
 
 ## PhysicalTradeValuesResults (object)
 + ContractId: P00004.000 (string)
