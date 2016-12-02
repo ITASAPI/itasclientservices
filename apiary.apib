@@ -453,8 +453,6 @@ The body of the request can contain multiple values delimited by double pipe "&#
  
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`string`|||Required|
-|RequestStatus|Request Status|`string`|7|||
 |<b>PhysicalTradeValue</b>||[array]|
 |ContractId|Contract ID|`string`|10|||
 |TradingEntityId|Trading Entity ID|`string`|2|||
@@ -500,6 +498,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
         + Data (PhysicalTradeValResults)
         + Pagination (Pagination)
         + Response (200 SuccessResponse)
+        + Messages (ResultsMessage)
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
@@ -848,8 +847,6 @@ A multipurpose object used by several endpoints
 + RequestId: 10001 (string)
 
 ## PhysicalTradeValResults (object)
-+ ResquestId: 10001 (string)
-+ RequestStatus: Active (string)
 + PhysicalTradeValue (array [PhysicalTradeValuesResults])
 
 ## PhysicalTradeValuesResults (object)
@@ -870,6 +867,11 @@ A multipurpose object used by several endpoints
 + ContractTermPortList (array [ContractTermPortValueList])
 + ShipmentStatusList (array [ShipmentStatusValueList])
 + TradingEntityList (array [TradingEntityValueList])
+
+## ResultsMessage (object)
++ RequestId: 10001 (string)
++ RequestTime: `2016-07-01T12:20:30Z` (string)
++ RequestStatus: Active (string)
 
 ## ServiceController (object)
 + ServiceName: `ITAS-NG Email Alert Poll Service` (string)
