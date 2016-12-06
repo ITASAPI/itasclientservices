@@ -482,7 +482,8 @@ The body of the request can contain multiple values delimited by double pipe "&#
 ## Physical Trades Valuation Results [/Valuation/Physical/TradeValuationResults/{RequestId}]
 `GET` Trades Valuation Results from Request Query
 ### Physical Trades Valuation Results  [GET]
- 
+
+<b>Response Body</b> 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ContractId|Contract ID|`string`|10|||
@@ -515,6 +516,12 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |FXFunctional|Foreign Exchange Functional|`decimal`||||
 |MktValFunctional|Market Value Functional|`decimal`||||
 
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
 
 + Parameters
     + RequestId (required, string, `10001`) ... Identify specific request ID.
@@ -541,6 +548,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 `GET` Summary Valuations from Request Query
 ### Physical Trades Valuation Results Summary  [GET]
 
+<b>Response Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |<b>CounterpartyList</b>||[array]||||
@@ -588,6 +596,13 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
 |ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
 |FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
 
 + Parameters
     + RequestId (required, string, `10001`) ... Identify specific request ID.
