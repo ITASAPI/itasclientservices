@@ -419,6 +419,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 <b>Response Messages</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
+|<b>Messages</b>
 |RequestId|Request ID|`string`|||Required|
 |RequestTime|Request Time|`datetime`||||
 |RequestStatus|Request Status|`string`|7|||
@@ -436,7 +437,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
     + Attributes 
         + Data (PhysicalTradeValRequestInfo)
         + Response (200 SuccessResponse)
-        + Messages (ResultsMessage)
+        + Messages (array [ResultsMessage])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
