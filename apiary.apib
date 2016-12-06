@@ -392,7 +392,29 @@ The body of the request can contain multiple values delimited by double pipe "&#
 <b>Response Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestQuery|Request Query|`object`||||
+|<b>RequestQuery</b>||||||
+|TradingEntityId|Trading Entity ID|`string`||||
+|ContractType|Contract Type|`string`|||`P` or `S`|
+|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
+|ContractApproved|Contract Approved|`boolean`||||
+|CounterpartyCode|Counterparty Code|`string`||||
+|CommodityCodePart1|Commodity Code|`string`||||
+|CommodityCodePart2|Commodity Origin|`string`||||
+|CommodityCodePart3|Commodity Grade|`string`||||
+|CommodityCodePart4|Commodity Code Section 4|`string`||||
+|CommodityCodePart5|Commodity Code Section 5|`string`||||
+|TraderCode|Trader Code|`string`||||
+|DepartmentCode|Department Code|`string`||||
+|PaymentTermCode|Payment Term Code|`string`||||
+|ContractTermCode|Contract Term Code|`string`||||
+|ContractTermPortCode|Contract Term Port Code|`string`||||
+|ShipmentStatusCode|Shipment Status Code|`string`||||
+|SingleCcyConVal|Single Currency Contract Value|`boolean`||||
+|SingleCcyCosts|Single Currency Costs|`boolean`||||
+|RateOfExchangeDate|Rate of Exchange Date|`number`||||
+|ValuationPeriod|Valuation Period|`string`||||
+|ApplicationKey|Application Key|`string`||||
+
 
 <b>Response Messages</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
