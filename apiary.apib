@@ -11,6 +11,37 @@ Model Header containing AccessToken
 
             Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
+
+# Group e-Invoicing
+
+## Token Authentication [/Security/TokenAuthorisation]
+`GET` Authentication of Token
+### Token Authentication [GET]
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Token|Token ID|`string`||||
+|Authorised|Authorised|`boolean`||||
+
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
++ Response 200 (application/json; charset=utf-8)
+    + Data (TokenAuthentication)
+    + Attributes (200 SuccessResponse)
+
++ Response 400 (application/json)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 NotFound)
+ 
+
 # Group ITAS Users
 Endpoints pertaining to Itas users for internal users only
 
@@ -927,6 +958,10 @@ A multipurpose object used by several endpoints
 + PnLCurrency (array [ValuesInPnLCcy])
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## TokenAuthentication (object)
++ Token: TokenId (string)
++ Authorised: true (boolean)
 
 ## TraderValueList (object)
 + TraderCode: JRH (string)
