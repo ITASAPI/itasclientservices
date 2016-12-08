@@ -138,6 +138,8 @@ Model Header containing AccessToken
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
+    + Attributes (InvoiceStatusUpdate)
+
 
 + Parameters
     + RequestId (required, string, `abcd123`) ... Identify specific request ID.
@@ -973,6 +975,12 @@ A multipurpose object used by several endpoints
 
 ## InvoiceStatus (object)
 + RequestId: abc123 (string)
+
+## InvoiceStatusUpdate (object)
++ StatusNumber: 200 (string)
++ StatusDetails: complete (string)
++ TrackId: 123 (string)
++ TimeStamp: `2016-11-15T11:31:34`
 
 ## KvpKey (object)
 + keyName: nameA (string)
