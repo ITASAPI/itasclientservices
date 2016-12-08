@@ -155,6 +155,36 @@ Model Header containing AccessToken
 + Response 404 (application/json)
     + Attributes (404 RequestIdResponse)
 
+## Sign XML [/Accounting/Signxml/{RequestId}]
+`GET` XML Signed
+
+### Sign XML [GET]
+
+<b>URI Parameters</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Parameters
+    + RequestId (required, string, `abcd123`) ... Identify specific request ID.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (SignedXML)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json)
+    + Attributes (400 BadCertificateResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 RequestIdResponse)
+
+
 
 # Group ITAS Users
 Endpoints pertaining to Itas users for internal users only
@@ -889,6 +919,15 @@ A multipurpose object used by several endpoints
 + Severity: Error (string)
 + Messages: `API5058 - Data : The mandatory field {fieldName} was missing.` (string)
 
+## 400 BadCertificateResponse (object)
++ Response
+    + Value: 400 Failed (string)
++ Messages (400 BadCertificateResponseDetail)
+
+## 400 BadCertificateResponseDetail (object)
++ Severity: Error (string)
++ Messages: `API5091 - API : There is no certificate/user for RequestId {RequestId}` (string)
+
 ## 400 StatusResponse (object)
 + Response
     + Value: 400 Failed (string)
@@ -1108,6 +1147,9 @@ A multipurpose object used by several endpoints
 + PnLCurrency (array [ValuesInPnLCcy])
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## SignedXML (object)
++ TempSignedXml: (string)
 
 ## TokenAuth (object)
 + Token: TokenId (string)
