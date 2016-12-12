@@ -54,8 +54,9 @@ Model Header containing AccessToken
 |--------|-----------|----|----------|-----|----------|
 |RequestId|Request ID|`string`||||
 |DocRef|Document Reference|`string`||||
-|TradingEntityId|Trading Entity ID|`string`||||
+|TradingEntityId|Trading Entity ID|`string`|2|||
 |TrackId|Track ID|`string`||||
+|CountryId|Country ID|`string`|3|||
 
 + Request (application/json)
     + Header
@@ -1064,6 +1065,7 @@ A multipurpose object used by several endpoints
 + DocRef: CP1515151 (string)
 + TradingEntityId: JT (string)
 + TrackId: xyz987 (string)
++ CountryId: GBP (string)
 
 ## Physicals Metadata (object)
 + Department (array [string])
