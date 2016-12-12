@@ -159,15 +159,6 @@ Model Header containing AccessToken
 |--------|-----------|----|----------|-----|----------|
 |RequestId|Request ID|`string`|||Required|
 
-<b>Request Body</b>
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|UnSignedXML|UnSigned XML|`object`||||
-
-<b>Response Body</b>
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|SignedXML|Signed XML|`object`||||
 
 + Request (application/json)
     + Header
@@ -178,9 +169,7 @@ Model Header containing AccessToken
     + RequestId (required, string, `abcd123`) ... Identify specific request ID.
 
 + Response 201 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (SignedXML)
-        + Response (201 CreateResponse)
+    + Attributes (201 CreateResponse)
 
 + Response 400 (application/json)
     + Attributes (400 BadCertificateResponse)
@@ -1149,9 +1138,6 @@ A multipurpose object used by several endpoints
 + PnLCurrency (array [ValuesInPnLCcy])
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
-
-## SignedXML (object)
-+ Document: file (string)
 
 ## TokenAuth (object)
 + Token: TokenId (string)
