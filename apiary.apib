@@ -86,11 +86,6 @@ Model Header containing AccessToken
 |--------|-----------|----|----------|-----|----------|
 |RequestId|Request ID|`string`|||Required|
 
-<b>Response Body</b>
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|XML Invoice||`string`||||
-
 + Request (application/json)
     + Header
 
@@ -100,9 +95,7 @@ Model Header containing AccessToken
     + RequestId (required, string, `abcd123`) ... Identify specific request ID.
 
 + Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (OutstandingInvoice)
-        + Response (200 SuccessResponse)
+    + Attributes (200 SuccessResponse)
 
 + Response 400 (application/json)
     + Attributes (400 BadReadResponse)
@@ -1056,9 +1049,6 @@ A multipurpose object used by several endpoints
 + groupName: groupC (string)
 + groupID: 3 (number)
 + groupUrl: /kvpstore/groupC (string)
-
-## OutstandingInvoice (object)
-+ TempXMLBody (string)
 
 ## OutstandingInvoices List (object)
 + RequestId: abc123 (string)
