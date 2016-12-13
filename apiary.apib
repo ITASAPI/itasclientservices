@@ -619,7 +619,6 @@ The body of the request can contain multiple values delimited by double pipe "&#
 <b>Response Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|<b>RequestQuery</b>||||||
 |TradingEntityId|Trading Entity ID|`string`||||
 |ContractType|Contract Type|`string`|||`P` or `S`|
 |ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
@@ -659,7 +658,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (PhysicalTradeValRequestInfo)
+        + Data (PhysicalTradeValRequest)
         + Response (200 SuccessResponse)
         + Messages (array [ResultsMessage])
 
@@ -1186,9 +1185,6 @@ A multipurpose object used by several endpoints
 + RateOfExchangeDate: 20161028 (number)
 + ValuationPeriod: AUG16 (string)
 + AppKey: ABC123 (string)
-
-## PhysicalTradeValRequestInfo (object)
-+ RequestQuery (PhysicalTradeValRequest)
 
 ## PhysicalTradeValResponse (object)
 + RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
