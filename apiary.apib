@@ -647,6 +647,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |RequestId|Request ID|`string`||||
 |RequestTime|Request Time|`datetime`||||
 |RequestStatus|Request Status|`string`||||
+|RequestCompleteTime|Request Complete Time|`datetime`||||
 
 + Parameters
     + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
@@ -660,7 +661,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
     + Attributes 
         + Data (PhysicalTradeValRequest)
         + Response (200 SuccessResponse)
-        + Messages (array [ResultsMessage])
+        + Messages (array [ResultsMessageComplete])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
@@ -719,6 +720,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |RequestId|Request ID|`string`||||
 |RequestTime|Request Time|`datetime`||||
 |RequestStatus|Request Status|`string`||||
+|RequestCompleteTime|Request Complete Time|`datetime`||||
 
 + Parameters
     + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
@@ -733,7 +735,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
         + Data (array [PhysicalTradeValuesResults])
         + Pagination (Pagination)
         + Response (200 SuccessResponse)
-        + Messages (array [ResultsMessage])
+        + Messages (array [ResultsMessageComplete])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
@@ -1186,6 +1188,12 @@ A multipurpose object used by several endpoints
 + RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
 + RequestTime: `2016-07-01T12:20:30Z` (string)
 + RequestStatus: Completed (string)
+
+## ResultsMessageComplete (object)
++ RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
++ RequestTime: `2016-07-01T12:20:30Z` (string)
++ RequestStatus: Completed (string)
++ RequestCompleteTime: `2016-07-01T12:22:30Z` (string)
 
 ## ServiceController (object)
 + ServiceName: `ITAS-NG Email Alert Poll Service` (string)
