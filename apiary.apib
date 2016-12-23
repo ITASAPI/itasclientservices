@@ -559,8 +559,7 @@ Define a subset of contracts from the whole list of contracts within a trading e
 Data endpoints for Trade Valuation
 
 ## Physical Trade Valuation Request [/Valuation/Physical/TradeValuationRequest]
-`POST` Request for Valuation of Trades.<br /><br />
-The body of the request can contain multiple values delimited by double pipe "&#124;&#124;" e.g. "TradingEntityId": "JT&#124;&#124;DT"
+`POST` Request for Valuation of Trades.
 
 ### Create Physical Trade Valuation Request [POST]
 
@@ -1144,25 +1143,25 @@ A multipurpose object used by several endpoints
 ## PhysicalTradeValRequest (object)
 + TradingEntityId: JT,DT (array[string])
 + ContractType: P (string)
-+ ContractStatus: O||C (string)
++ ContractStatus: O,C (array[string])
 + ContractApproved: true (boolean)
-+ CounterpartyCode: FOODSWAT.S||FOODCLOT.S (string)
-+ CommodityCodePart1: CHE||SPR (string)
-+ CommodityCodePart2: PASO||INCT (string)
-+ CommodityCodePart3: 55||77 (string)
-+ CommodityCodePart4: QWE||PTY (string)
-+ CommodityCodePart5: RTY||PLE (string)
-+ TraderCode: JS||AN (string)
-+ DepartmentCode: NAD||OMP (string)
-+ PaymentTermCode: INV30||INV40 (string)
-+ ContractTermCode: DEL||INT (string)
-+ ContractTermPortCode: LIV (string)
-+ ShipmentStatusCode: D||IT (string)
++ CounterpartyCode: FOODSWAT.S,FOODCLOT.S (array[string])
++ CommodityCodePart1: CHE,SPR (array[string])
++ CommodityCodePart2: PASO,INCT (array[string])
++ CommodityCodePart3: 55,77 (array[string])
++ CommodityCodePart4: QWE,PTY (array[string])
++ CommodityCodePart5: RTY,PLE (array[string])
++ TraderCode: JS,AN (array[string])
++ DepartmentCode: NAD,OMP (array[string])
++ PaymentTermCode: INV30,INV40 (array[string])
++ ContractTermCode: DEL,INT (array[string])
++ ContractTermPortCode: LIV,LDN (array[string])
++ ShipmentStatusCode: D,IT (array[string])
 + SingleCcyConVal: true (boolean)
 + SingleCcyCosts: false (boolean)
 + RateOfExchangeDate: 20161028 (number)
-+ ValuationPeriod: AUG16 (string)
-+ AppKey: ABC123 (string)
++ ValuationPeriod: AUG16,SEP16 (array[string])
++ AppKey: ABC123,EFG456 (array[string])
 
 ## PhysicalTradeValResponse (object)
 + RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
