@@ -567,27 +567,27 @@ The body of the request can contain multiple values delimited by double pipe "&#
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|TradingEntityId|Trading Entity ID|`string`||||
+|TradingEntityId|Trading Entity ID|`array`||||
 |ContractType|Contract Type|`string`|||`P` or `S`|
-|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
+|ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
 |ContractApproved|Contract Approved|`boolean`||||
-|CounterpartyCode|Counterparty Code|`string`||||
-|CommodityCodePart1|Commodity Code|`string`||||
-|CommodityCodePart2|Commodity Origin|`string`||||
-|CommodityCodePart3|Commodity Grade|`string`||||
-|CommodityCodePart4|Commodity Code Section 4|`string`||||
-|CommodityCodePart5|Commodity Code Section 5|`string`||||
-|TraderCode|Trader Code|`string`||||
-|DepartmentCode|Department Code|`string`||||
-|PaymentTermCode|Payment Term Code|`string`||||
-|ContractTermCode|Contract Term Code|`string`||||
-|ContractTermPortCode|Contract Term Port Code|`string`||||
-|ShipmentStatusCode|Shipment Status Code|`string`||||
+|CounterpartyCode|Counterparty Code|`array`||||
+|CommodityCodePart1|Commodity Code|`array`||||
+|CommodityCodePart2|Commodity Origin|`array`||||
+|CommodityCodePart3|Commodity Grade|`array`||||
+|CommodityCodePart4|Commodity Code Section 4|`array`||||
+|CommodityCodePart5|Commodity Code Section 5|`array`||||
+|TraderCode|Trader Code|`array`||||
+|DepartmentCode|Department Code|`array`||||
+|PaymentTermCode|Payment Term Code|`array`||||
+|ContractTermCode|Contract Term Code|`array`||||
+|ContractTermPortCode|Contract Term Port Code|`array`||||
+|ShipmentStatusCode|Shipment Status Code|`array`||||
 |SingleCcyConVal|Single Currency Contract Value|`boolean`||||
 |SingleCcyCosts|Single Currency Costs|`boolean`||||
 |RateOfExchangeDate|Rate of Exchange Date|`number`||||
-|ValuationPeriod|Valuation Period|`string`||||
-|AppKey|Application Key|`string`||||
+|ValuationPeriod|Valuation Period|`array`||||
+|AppKey|Application Key|`array`||||
 
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -619,27 +619,28 @@ The body of the request can contain multiple values delimited by double pipe "&#
 <b>Response Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|TradingEntityId|Trading Entity ID|`string`||||
+|TradingEntityId|Trading Entity ID|`array`||||
 |ContractType|Contract Type|`string`|||`P` or `S`|
-|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
+|ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
 |ContractApproved|Contract Approved|`boolean`||||
-|CounterpartyCode|Counterparty Code|`string`||||
-|CommodityCodePart1|Commodity Code|`string`||||
-|CommodityCodePart2|Commodity Origin|`string`||||
-|CommodityCodePart3|Commodity Grade|`string`||||
-|CommodityCodePart4|Commodity Code Section 4|`string`||||
-|CommodityCodePart5|Commodity Code Section 5|`string`||||
-|TraderCode|Trader Code|`string`||||
-|DepartmentCode|Department Code|`string`||||
-|PaymentTermCode|Payment Term Code|`string`||||
-|ContractTermCode|Contract Term Code|`string`||||
-|ContractTermPortCode|Contract Term Port Code|`string`||||
-|ShipmentStatusCode|Shipment Status Code|`string`||||
+|CounterpartyCode|Counterparty Code|`array`||||
+|CommodityCodePart1|Commodity Code|`array`||||
+|CommodityCodePart2|Commodity Origin|`array`||||
+|CommodityCodePart3|Commodity Grade|`array`||||
+|CommodityCodePart4|Commodity Code Section 4|`array`||||
+|CommodityCodePart5|Commodity Code Section 5|`array`||||
+|TraderCode|Trader Code|`array`||||
+|DepartmentCode|Department Code|`array`||||
+|PaymentTermCode|Payment Term Code|`array`||||
+|ContractTermCode|Contract Term Code|`array`||||
+|ContractTermPortCode|Contract Term Port Code|`array`||||
+|ShipmentStatusCode|Shipment Status Code|`array`||||
 |SingleCcyConVal|Single Currency Contract Value|`boolean`||||
 |SingleCcyCosts|Single Currency Costs|`boolean`||||
 |RateOfExchangeDate|Rate of Exchange Date|`number`||||
-|ValuationPeriod|Valuation Period|`string`||||
-|AppKey|Application Key|`string`||||
+|ValuationPeriod|Valuation Period|`array`||||
+|AppKey|Application Key|`array`||||
+
 
 <b>Response Messages</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -1141,7 +1142,7 @@ A multipurpose object used by several endpoints
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## PhysicalTradeValRequest (object)
-+ TradingEntityId: `JT||DT` (string)
++ TradingEntityId: JT,DT (array[string])
 + ContractType: P (string)
 + ContractStatus: O||C (string)
 + ContractApproved: true (boolean)
