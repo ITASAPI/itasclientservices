@@ -567,7 +567,7 @@ Data endpoints for Trade Valuation
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`array`||||
-|ContractType|Contract Type|`string`|||`P` or `S`|
+|ContractType|Contract Type|`array`|||`P` or `S`|
 |ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
 |ContractApproved|Contract Approved|`boolean`||||
 |CounterpartyCode|Counterparty Code|`array`||||
@@ -619,7 +619,7 @@ Data endpoints for Trade Valuation
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`array`||||
-|ContractType|Contract Type|`string`|||`P` or `S`|
+|ContractType|Contract Type|`array`|||`P` or `S`|
 |ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
 |ContractApproved|Contract Approved|`boolean`||||
 |CounterpartyCode|Counterparty Code|`array`||||
@@ -1142,7 +1142,7 @@ A multipurpose object used by several endpoints
 
 ## PhysicalTradeValRequest (object)
 + TradingEntityId: JT,DT (array[string])
-+ ContractType: P (string)
++ ContractType: P,S (array[string])
 + ContractStatus: O,C (array[string])
 + ContractApproved: true (boolean)
 + CounterpartyCode: FOODSWAT.S,FOODCLOT.S (array[string])
