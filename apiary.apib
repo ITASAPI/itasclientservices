@@ -586,6 +586,7 @@ Data endpoints for Trade Valuation
 |SingleCcyCosts|Single Currency Costs|`boolean`||||
 |RateOfExchangeDate|Rate of Exchange Date|`number`||||
 |ValuationPeriod|Valuation Period|`array`||||
+|IncludeFOPnLAndFOContractValuations|Include FO PnL and FO Contract Valuations|`boolean`||If set to `true`, this will increase processing time by 300%||
 |AppKey|Application Key|`string`||||
 
 <b>Response Data</b>
@@ -638,6 +639,7 @@ Data endpoints for Trade Valuation
 |SingleCcyCosts|Single Currency Costs|`boolean`||||
 |RateOfExchangeDate|Rate of Exchange Date|`number`||||
 |ValuationPeriod|Valuation Period|`array`||||
+|IncludeFOPnLAndFOContractValuations|Include FO PnL and FO Contract Valuations|`boolean`||||
 |AppKey|Application Key|`string`||||
 
 
@@ -1161,6 +1163,7 @@ A multipurpose object used by several endpoints
 + SingleCcyCosts: false (boolean)
 + RateOfExchangeDate: 20161028 (number)
 + ValuationPeriod: AUG16,SEP16 (array[string])
++ IncludeFOPnLAndFOContractValuations: false (boolean)
 + AppKey: ABC123 (string)
 
 ## PhysicalTradeValResponse (object)
