@@ -72,7 +72,12 @@ Model Header containing AccessToken
 ## Token Authentication [/Security/TokenAuthorisation]
 `GET` Authentication of Token
 
-### Token Authentication [GET]
+### Token Authentication [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Token|Token ID|`string`||||
 
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -86,11 +91,13 @@ Model Header containing AccessToken
 
             AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
+    + Attributes (TokenAuthentication)
 
-+ Response 200 (application/json; charset=utf-8)
+
++ Response 201 (application/json; charset=utf-8)
     + Attributes 
         + Data (TokenAuth)
-        + Response (200 SuccessResponse)
+        + Response (201 AuthoriseResponse)
 
 
 ## Outstanding Invoices List [/Accounting/Invoicing/OutstandingInvoices]
@@ -892,6 +899,9 @@ A multipurpose object used by several endpoints
 ## 200 UpdateResponse (object)
 + Value: Updated (string)
 
+## 201 AuthoriseResponse (object)
++ Value: Authorised (string)
+
 ## 201 CreateResponse (object)
 + Value: Created (string)
 
@@ -1223,6 +1233,9 @@ A multipurpose object used by several endpoints
 ## TokenAuth (object)
 + Token: TokenId (string)
 + Authorised: true (boolean)
+
+## TokenAuthentication (object)
++ Token: TokenId (string)
 
 ## TraderValueList (object)
 + TraderCode: JRH (string)
