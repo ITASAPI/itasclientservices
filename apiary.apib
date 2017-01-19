@@ -167,8 +167,10 @@ Model Header containing AccessToken
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
+|StatusStage|Status Stage|`string`||||
 |StatusNumber|Status Number|`string`||||
-|StatusDetails|Status Details|`string`|||`created`, `incomplete`, `complete` or `failed`|
+|Status|Status|`string`|||`created`, `valid`, `sent`, `incomplete`, `complete` or `failed`|
+|StatusDetails|Status Details|`string`||||
 |TrackId|Track ID|`string`||||
 |TimeStamp|Time Stamp|`datetime`||||
 
@@ -1080,10 +1082,12 @@ A multipurpose object used by several endpoints
 + RequestId: abc123 (string)
 
 ## InvoiceStatusUpdate (object)
-+ StatusNumber: 200 (string)
-+ StatusDetails: complete (string)
++ StatusStage: `1 - InvoiceRequestQueueService` (string)
++ StatusNumber: 500 (string)
++ Status: Failed (string)
++ StatusDetails: Internal Server Error (string)
 + TrackId: 123 (string)
-+ TimeStamp: `2016-11-15T11:31:34`
++ TimeStamp: `2016-11-15T11:31:34` (string)
 
 ## KvpKey (object)
 + keyName: nameA (string)
