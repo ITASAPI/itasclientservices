@@ -3,6 +3,25 @@ HOST: http://yourITASserver:4730/
 
 # ITAS Client Services
 
+## Disclaimer
+
+**** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT and PATCH requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
+<br />
+<br />
+<strong>Release notes</strong> (XX<sup>th</sup> XX 2018)
+
+## New Endpoints
+
+<ul>
+<li>Reporting Data <b>Report Factory Export</b>: Generate Report though report factory,<a href="/#reference/reporting-data/report-factory"> Link</a></li>
+</ul>
+
+## Updated Endpoints
+
+<ul>
+</ul>
+<chandiv>** ends ** </div>
+
 ## AccessToken [/AT]
 Model Header containing AccessToken
 
@@ -22,7 +41,7 @@ Model Header containing AccessToken
 # Group Reporting Data
 
 ## Report Factory [/ReportingData/{TradingEntityId}/ReportFactory/{ReportId}] 
-`POST` Generate report though report factory.
+`POST` Generate report though report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Report Factory Export [POST]
 
 <b>URI Parameters</b>
