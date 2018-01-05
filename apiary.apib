@@ -41,32 +41,40 @@ Model Header containing AccessToken
 
 # Group Reporting Data
 
-## Report Factory [/ReportingData/{TradingEntityId}/ReportFactory/{ReportId}] 
+## Report Factory [/ReportingData/{TradingEntityId}/ReportFactoryExport/Service2000] 
 `POST` Generate report though report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Report Factory Export [POST]
 
-<b>URI Parameters</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|ReportId|Report ID|`number`|||Required|
+|ReportName|Report Name|`string`|||Required|
+|Data|Data|`string`|||Required|
 
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
 
 + Request (application/json)
     + Header
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-+ Parameters
-    + RequestId (required, string, `123`) ... Identify specific report ID.
 
-+ Response 201 (application/xml)
-    + Attributes (201 CreateResponse)
+    + Attributes (ReportFactoryExport)
 
-+ Response 400 (application/json)
-    + Attributes (400 BadReadResponse)
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (CashDocRefResponse)
+        + Response (201 CreateResponse)
 
-+ Response 404 (application/json)
-    + Attributes (404 ReportIdResponse)
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
 
 
 
@@ -175,15 +183,6 @@ Model Header containing AccessToken
 + Severity: Error (string)
 + Message: `API5067 - API : The value {RequestId} sent as the RequestId does not exist.` (string)
 
-## 404 ReportIdResponse (object)
-+ Response
-    + Value: 404 Object not found (string)
-+ Messages (array[404 ErrorMessageReportIdMessage])
-
-## 404 ErrorMessageReportIdMessage (object)
-+ Severity: Error (string)
-+ Message: `API5067 - API : The value {ReportId} sent as the ReportId does not exist.` (string)
-
 ## 404 ServiceResponse (object)
 + Response
     + Value: 404 Object not found (string)
@@ -195,5 +194,9 @@ Model Header containing AccessToken
 
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
+
+## ReportFactoryExport (object)
++ ReportName: Report1 (string)
++ Data: TBC (string)
 
 
