@@ -45,10 +45,16 @@ Model Header containing AccessToken
 `POST` Generate report though report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Report Factory Export [POST]
 
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReportName|Report Name|`string`|||Required|
 |Data|Data|`string`|||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|JobRef|Job Reference|`string`||||
 
 
 + Parameters
