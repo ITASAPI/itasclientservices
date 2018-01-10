@@ -41,15 +41,14 @@ Model Header containing AccessToken
 
 # Group Reporting Data
 
-## Report Factory [/ReportingData/ReportFactoryExport/Service2000]
+## Report Factory [/ReportingData/ReportFactoryExport]
 `POST` Generate report though report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Report Factory Export [POST]
 
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|TradingEntityId|Trading Entity ID|`string`|2||Required|
-|XML|XML|`object`|||Required|
+|Request|Request|`object`|||Required|
 
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -199,10 +198,9 @@ Model Header containing AccessToken
 + JobRef: Job1 (string)
 
 ## ReportFactoryExport (object)
-+ TradingEntityId: JT (string)
-+ XML (XML)
++ Request (ReportRequest)
 
-## XML (object)
-+ XML
+## ReportRequest (object)
++ Report Request
 
 
