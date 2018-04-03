@@ -80,7 +80,6 @@ See Exmaple panel for the example response body
     }
     }
 
-
 + Response 200 (text/plain)
 
 {
@@ -108,10 +107,10 @@ See Exmaple panel for the example response body
     "Value": "Success"
   },
   "PaginationInfo": {
-    "Total": 315,
+    "Total": 250,
     "Top": 200,
-    "Skip": 154,
-    "Returned": 161
+    "Skip": 100,
+    "Returned": 150
   }
 }
 
@@ -284,29 +283,8 @@ See Exmaple panel for the example response body
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
 
-## Country (object)
-+ CountryId: GB (string)
-+ CountryDescription: Great Britain (string)
-
-## Department (object)
-+ TradingEntityId: jt (string)
-+ DepartmentId: 1111 (string)
-+ DepartmentDescription: Department 1111 (string)
-+ NominalCategory (NominalCategory)
-+ Country (Country)
-+ EDICode: EDI1234 (string)
-+ Status: O (string)
-
-## DQS Department (object)
-+ Departments (array [Department])
-
 ## JobId (object)
 + JobRef: Job1 (string)
-
-## NominalCategory (object)
-+ NominalCategoryId: AA (string)
-+ NominalCategoryDescription: AA Trading (string)
-+ NominalGroup: BB (string)
 
 ## Pagination (object)
 + Total: 250 (number) - total number of records available
