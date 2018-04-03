@@ -281,6 +281,12 @@ See Exmaple panel for the example response body
 + NominalCategoryDescription: AA Trading (string)
 + NominalGroup: BB (string)
 
+## Pagination (object)
++ Total: 250 (number) - total number of records available
++ Top: 200 (number) - max number returned per message 
++ Skip: 54 (number) - number of records skipped
++ Returned: 146 (number) - actual number returned
+
 ## ReportFactoryExport (object)
 + Request: `<?xml version="1.0"?><ITASReportInput RFname="E68ValuationReport" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/1714/inpE68Valuation_v2.xsd"><TradingEntityCode></TradingEntityCode><AccountInitials></AccountInitials><OutputSchemaName>M2MNew</OutputSchemaName><OutputSchemaVersion>2</OutputSchemaVersion><OutputSchemaAddress>https://itashelp.hivedome.net/media/1713/outE68Valuation_m2mnewstyle_v2.xsd</OutputSchemaAddress><OutputStyle></OutputStyle><OutputFolder></OutputFolder><OutputFilename></OutputFilename><SilentMode>true</SilentMode><Style>Mark to Market Valuation</Style><Sequence>Department/Cmy 3/Cmy 2/Shipment Period</Sequence><ExcelStyle>true</ExcelStyle><PrintDetail>true</PrintDetail><ShowPlStr>Show Both Profits and Losses</ShowPlStr><CostStyle>Total</CostStyle></ITASReportInput>` (string)
 
