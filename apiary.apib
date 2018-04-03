@@ -115,10 +115,10 @@ See Example panel for the example response body
 }
 
 + Response 400 (application/json; charset=utf-8)
-    + Attributes (400 Response)
+    + Attributes (400 ResponseDQS)
 
 + Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
+    + Attributes (404 ResponseDQS)
 
 
 
@@ -193,6 +193,15 @@ See Example panel for the example response body
 + Severity: Error (string)
 + Message: `API5058 - Data : The mandatory field {fieldName} was missing in the request body.` (string)
 
+## 400 ResponseDQS (object)
++ Response
+    + Value: 400 Bad Request (string)
++ Messages (array [400 ErrorMessageDetailDQS])
+
+## 400 ErrorMessageDetailDQS (object)
++ Severity: Error (string)
++ Message: `{fieldName} is not a field of type {fieldName}.` (string)
+
 ## 400 BadPropertyResponse (object)
 + Response
     + Value: 400 Bad Request (string)
@@ -261,6 +270,15 @@ See Example panel for the example response body
 ## 404 ErrorMessageDetailMessage (object)
 + Severity: Warning (string)
 + Message: `API5067 - API : The value {TradingEntityId} sent as the TradingEntitiyId does not exist.` (string)
+
+## 404 ResponseDQS (object)
++ Response
+    + Value: 404 Not found (string)
++ Messages (array[404 ErrorMessageDetailMessageDQS])
+
+## 404 ErrorMessageDetailMessageDQS (object)
++ Severity: Warning (string)
++ Message: `API5084 - API : Invalid trading entities specified: {tradingEntity}.` (string)
 
 ## 404 RequestIdResponse (object)
 + Response
