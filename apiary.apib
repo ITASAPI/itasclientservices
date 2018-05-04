@@ -130,8 +130,44 @@ See Example panel for the example response body
 
 # Group Reporting Data
 
+##  Data Factory [/ReportingData/DataFactoryExport]
+`POST` Schedule Data exports.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Data Factory Export [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Request|Request|`string`|||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|JobRef|Job Reference|`string`||||
+
+
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
+    + Attributes (DataFactoryExport)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (JobId)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+
 ## Report Factory [/ReportingData/ReportFactoryExport]
-`POST` Generate report though report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+`POST` Generate report through report factory.  * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Report Factory Export [POST]
 
 <b>Request Body</b>
@@ -300,6 +336,9 @@ See Example panel for the example response body
 
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
+
+## DataFactoryExport (object)
++ Request: `<?xml version="1.0"?><ITASReportInput RFname="E68ValuationReport" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/1714/inpE68Valuation_v2.xsd"><TradingEntityCode></TradingEntityCode><AccountInitials></AccountInitials><OutputSchemaName>M2MNew</OutputSchemaName><OutputSchemaVersion>2</OutputSchemaVersion><OutputSchemaAddress>https://itashelp.hivedome.net/media/1713/outE68Valuation_m2mnewstyle_v2.xsd</OutputSchemaAddress><OutputStyle></OutputStyle><OutputFolder></OutputFolder><OutputFilename></OutputFilename><SilentMode>true</SilentMode><Style>Mark to Market Valuation</Style><Sequence>Department/Cmy 3/Cmy 2/Shipment Period</Sequence><ExcelStyle>true</ExcelStyle><PrintDetail>true</PrintDetail><ShowPlStr>Show Both Profits and Losses</ShowPlStr><CostStyle>Total</CostStyle></ITASReportInput>` (string)
 
 ## JobId (object)
 + JobRef: Job1 (string)
