@@ -608,8 +608,39 @@ Data endpoints for Trade Valuation
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg (string)
 
+## CommodityValueList (object)
++ CommodityFullCode: CHE||CASO||47||QWE||RTY (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## ContractTermValueList (object)
++ ContractTermCode: DEL (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## ContractTermPortValueList (object)
++ ContractTermPortCode: LIV (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## CounterpartyValueList (object)
++ CounterpartyCode: ABANI.P (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+
 ## DataFactoryExport (object)
 + Request: `<?xml version="1.0"?><ITASReportInput RFname="E68ValuationReport" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/1714/inpE68Valuation_v2.xsd"><TradingEntityCode></TradingEntityCode><AccountInitials></AccountInitials><OutputSchemaName>M2MNew</OutputSchemaName><OutputSchemaVersion>2</OutputSchemaVersion><OutputSchemaAddress>https://itashelp.hivedome.net/media/1713/outE68Valuation_m2mnewstyle_v2.xsd</OutputSchemaAddress><OutputStyle></OutputStyle><OutputFolder></OutputFolder><OutputFilename></OutputFilename><SilentMode>true</SilentMode><Style>Mark to Market Valuation</Style><Sequence>Department/Cmy 3/Cmy 2/Shipment Period</Sequence><ExcelStyle>true</ExcelStyle><PrintDetail>true</PrintDetail><ShowPlStr>Show Both Profits and Losses</ShowPlStr><CostStyle>Total</CostStyle></ITASReportInput>` (string)
+
+## DepartmentValueList (object)
++ DepartmentCode: NAD (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## JobId (object)
 + JobRef: Job1 (string)
@@ -619,6 +650,12 @@ Data endpoints for Trade Valuation
 + Top: 200 (number) - max number returned per message 
 + Skip: 100 (number) - number of records skipped
 + Returned: 150 (number) - actual number returned
+
+## PaymentTermValueList (object)
++ PaymentTermCode: INV30 (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## PhysicalTradeValRequest (object)
 + TradingEntityId: JT,DT (array[string])
@@ -679,8 +716,53 @@ Data endpoints for Trade Valuation
 ## ReportFactoryExport (object)
 + Request: `<?xml version="1.0"?><ITASReportInput RFname="E68ValuationReport" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/1714/inpE68Valuation_v2.xsd"><TradingEntityCode></TradingEntityCode><AccountInitials></AccountInitials><OutputSchemaName>M2MNew</OutputSchemaName><OutputSchemaVersion>2</OutputSchemaVersion><OutputSchemaAddress>https://itashelp.hivedome.net/media/1713/outE68Valuation_m2mnewstyle_v2.xsd</OutputSchemaAddress><OutputStyle></OutputStyle><OutputFolder></OutputFolder><OutputFilename></OutputFilename><SilentMode>true</SilentMode><Style>Mark to Market Valuation</Style><Sequence>Department/Cmy 3/Cmy 2/Shipment Period</Sequence><ExcelStyle>true</ExcelStyle><PrintDetail>true</PrintDetail><ShowPlStr>Show Both Profits and Losses</ShowPlStr><CostStyle>Total</CostStyle></ITASReportInput>` (string)
 
+## ShipmentStatusValueList (object)
++ ShipmentStatusCode: D (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
+## TraderValueList (object)
++ TraderCode: JRH (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
+## TradingEntityValueList (object)
++ TradingEntityId: JT (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## ValuesInContractCcy (object)
++ CurrencyCode: USD (string)
++ ConValContract: 4050 (number)
++ CostValContract: 200 (number)
++ ComsnValContract: 3000 (number)
++ PolValContract: 100 (number)
++ FOContract: 3750 (number)
++ FXContract: 3900 (number)
++ MktValContract: 4800 (number)
+
+## ValuesInFunctionalCcy (object)
++ CurrencyCode: GBP (string)
++ ConValFunctional: 3500 (number)
++ CostValFunctional: 900 (number)
++ ComsnValFunctional: 1200 (number)
++ PolValFunctional: 1700 (number)
++ FOFunctional: 2500 (number)
++ FXFunctional: 2900 (number)
++ MktValFunctional: 3600 (number)
+
+## ValuesInPnLCcy (object)
++ CurrencyCode: GBP (string)
++ ConValPnL: 3500 (number)
++ CostValPnL: 900 (number)
++ ComsnValPnL: 1200 (number)
++ PolValPnL: 1700 (number)
++ FOPnL: 2500 (number)
++ FXPnL: 2900 (number)
++ MktValPnL: 3600 (number)
 
 
 
