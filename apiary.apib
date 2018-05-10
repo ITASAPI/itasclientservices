@@ -202,6 +202,277 @@ See Example panel for the example response body
     + Attributes (404 Response)
 
 
+# Group Valuation-Physical
+Data endpoints for Trade Valuation
+
+## Physical Trade Valuation Request [/Valuation/Physical/TradeValuationRequest]
+`POST` Request for Valuation of Trades.
+
+### Create Physical Trade Valuation Request [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|TradingEntityId|Trading Entity ID|`array`||||
+|ContractType|Contract Type|`array`|||`P` or `S`|
+|ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
+|ContractApproved|Contract Approved|`boolean`||||
+|CounterpartyCode|Counterparty Code|`array`||||
+|CommodityCodePart1|Commodity Code|`array`||||
+|CommodityCodePart2|Commodity Origin|`array`||||
+|CommodityCodePart3|Commodity Grade|`array`||||
+|CommodityCodePart4|Commodity Code Section 4|`array`||||
+|CommodityCodePart5|Commodity Code Section 5|`array`||||
+|TraderCode|Trader Code|`array`||||
+|DepartmentCode|Department Code|`array`||||
+|PaymentTermCode|Payment Term Code|`array`||||
+|ContractTermCode|Contract Term Code|`array`||||
+|ContractTermPortCode|Contract Term Port Code|`array`||||
+|ShipmentStatusCode|Shipment Status Code|`array`||||
+|SingleCcyConVal|Single Currency Contract Value|`boolean`||||
+|SingleCcyCosts|Single Currency Costs|`boolean`||||
+|RateOfExchangeDate|Rate of Exchange Date|`number`||||
+|ValuationPeriod|Valuation Period|`array`||||
+|AppKey|Application Key|`string`||||
+|IncludeFOPnLAndFOContractValuations|Include FO PnL and FO Contract Valuations|`boolean`||If set to `true`, this will increase processing time by 300%||
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (PhysicalTradeValRequest)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (PhysicalTradeValResponse)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+## Physical Trade Valuation Request Information [/Valuation/Physical/TradeValuationInfo/{RequestId}]
+`GET` Information relating to the request of Physical Trade Valuation
+### Read Physical Trade Valuation Request Information  [GET]
+ 
+<b>Response Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|TradingEntityId|Trading Entity ID|`array`||||
+|ContractType|Contract Type|`array`|||`P` or `S`|
+|ContractStatus|Contract Status|`array`|||`O`, `C` or `Q`|
+|ContractApproved|Contract Approved|`boolean`||||
+|CounterpartyCode|Counterparty Code|`array`||||
+|CommodityCodePart1|Commodity Code|`array`||||
+|CommodityCodePart2|Commodity Origin|`array`||||
+|CommodityCodePart3|Commodity Grade|`array`||||
+|CommodityCodePart4|Commodity Code Section 4|`array`||||
+|CommodityCodePart5|Commodity Code Section 5|`array`||||
+|TraderCode|Trader Code|`array`||||
+|DepartmentCode|Department Code|`array`||||
+|PaymentTermCode|Payment Term Code|`array`||||
+|ContractTermCode|Contract Term Code|`array`||||
+|ContractTermPortCode|Contract Term Port Code|`array`||||
+|ShipmentStatusCode|Shipment Status Code|`array`||||
+|SingleCcyConVal|Single Currency Contract Value|`boolean`||||
+|SingleCcyCosts|Single Currency Costs|`boolean`||||
+|RateOfExchangeDate|Rate of Exchange Date|`number`||||
+|ValuationPeriod|Valuation Period|`array`||||
+|AppKey|Application Key|`string`||||
+|IncludeFOPnLAndFOContractValuations|Include FO PnL and FO Contract Valuations|`boolean`||||
+
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
+|RequestCompleteTime|Request Complete Time|`datetime`||||
+
++ Parameters
+    + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (PhysicalTradeValRequest)
+        + Response (200 SuccessResponse)
+        + Messages (array [ResultsMessageComplete])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+
+## Physical Trade Valuation Re-Request [/Valuation/Physical/TradeValuationReRequest/{RequestId}]
+`PUT` Re-Submit Request for Valuation of Trades.
+### Create Physical Trade Valuation Re-Request [PUT]
+ 
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`|||Required|
+
++ Parameters
+    + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes  
+        + Data 
+            + RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+
+
+## Physical Trades Valuation Results [/Valuation/Physical/TradeValuationResults/{RequestId}]
+`GET` Trades Valuation Results from Request Query
+### Physical Trades Valuation Results  [GET]
+
+<b>Response Body</b> 
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ContractId|Contract ID|`string`|10|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|`object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|`object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|`object`|||
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
+|RequestCompleteTime|Request Complete Time|`datetime`||||
+
++ Parameters
+    + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [PhysicalTradeValuesResults])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+        + Messages (array [ResultsMessageComplete])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+## Physical Trades Valuation Results Summary [/Valuation/Physical/TradeValuationSummary/{RequestId}]
+`GET` Summary Valuations from Request Query
+### Physical Trades Valuation Results Summary  [GET]
+
+<b>Response Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|<b>CounterpartyList</b>||[array]||||
+|CounterpartyCode|Counterparty Code|`string`|10|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>CommodityList</b>||[array]|
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>TraderList</b>||[array]|
+|TraderCode|Trader Code|`string`|3|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>DepartmentList</b>||[array]|
+|DepartmentCode|Department Code|`string`|4|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>PaymentTermList</b>||[array]|
+|PaymentTermCode|Payment Term Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ContractTermList</b>||[array]|
+|ContractTermCode|Contract Term Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ContractTermPortList</b>||[array]|
+|ContractTermPortCode|Contract Term Port Code|`string`|8|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>ShipmentStatusList</b>||[array]|
+|ShipmentStatusCode|Shipment Status Code|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+|<b>TradingEntityList</b>||[array]|
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
+
++ Parameters
+    + RequestId (required, string, `a123a456-7891-23a4-a567-8a9a10aaa123`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (PhysicalTradeValuesResultsSum)
+        + Response (200 SuccessResponse)
+        + Messages (array [ResultsMessage])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+
 
 # Data Structures
 
@@ -348,6 +619,62 @@ See Example panel for the example response body
 + Top: 200 (number) - max number returned per message 
 + Skip: 100 (number) - number of records skipped
 + Returned: 150 (number) - actual number returned
+
+## PhysicalTradeValRequest (object)
++ TradingEntityId: JT,DT (array[string])
++ ContractType: P,S (array[string])
++ ContractStatus: O,C (array[string])
++ ContractApproved: true (boolean)
++ CounterpartyCode: FOODSWAT.S,FOODCLOT.S (array[string])
++ CommodityCodePart1: CHE,SPR (array[string])
++ CommodityCodePart2: PASO,INCT (array[string])
++ CommodityCodePart3: 55,77 (array[string])
++ CommodityCodePart4: QWE,PTY (array[string])
++ CommodityCodePart5: RTY,PLE (array[string])
++ TraderCode: JS,AN (array[string])
++ DepartmentCode: NAD,OMP (array[string])
++ PaymentTermCode: INV30,INV40 (array[string])
++ ContractTermCode: DEL,INT (array[string])
++ ContractTermPortCode: LIV,LDN (array[string])
++ ShipmentStatusCode: D,IT (array[string])
++ SingleCcyConVal: true (boolean)
++ SingleCcyCosts: false (boolean)
++ RateOfExchangeDate: 20161028 (number)
++ ValuationPeriod: AUG16,SEP16 (array[string])
++ AppKey: ABC123 (string)
++ IncludeFOPnLAndFOContractValuations: false (boolean)
+
+## PhysicalTradeValResponse (object)
++ RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
+
+## PhysicalTradeValuesResults (object)
++ ContractId: P00004.000 (string)
++ TradingEntityId: JT (string)
++ PnLCurrency (ValuesInPnLCcy)
++ ContractCurrency (ValuesInContractCcy)
++ FunctionalCurrency (ValuesInFunctionalCcy) 
+
+## PhysicalTradeValuesResultsSum (object)
++ CounterpartyList (array [CounterpartyValueList])
++ CommodityList (array [CommodityValueList])
++ TraderList (array [TraderValueList])
++ DepartmentList (array [DepartmentValueList])
++ PaymentTermList (array [PaymentTermValueList])
++ ContractTermList (array [ContractTermValueList])
++ ContractTermPortList (array [ContractTermPortValueList])
++ ShipmentStatusList (array [ShipmentStatusValueList])
++ TradingEntityList (array [TradingEntityValueList])
+
+## ResultsMessage (object)
++ RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
++ RequestTime: `2016-07-01T12:20:30Z` (string)
++ RequestStatus: Completed (string)
+
+## ResultsMessageComplete (object)
++ RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
++ RequestTime: `2016-07-01T12:20:30Z` (string)
++ RequestStatus: Completed (string)
++ RequestCompleteTime: `2016-07-01T12:22:30Z` (string)
 
 ## ReportFactoryExport (object)
 + Request: `<?xml version="1.0"?><ITASReportInput RFname="E68ValuationReport" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/1714/inpE68Valuation_v2.xsd"><TradingEntityCode></TradingEntityCode><AccountInitials></AccountInitials><OutputSchemaName>M2MNew</OutputSchemaName><OutputSchemaVersion>2</OutputSchemaVersion><OutputSchemaAddress>https://itashelp.hivedome.net/media/1713/outE68Valuation_m2mnewstyle_v2.xsd</OutputSchemaAddress><OutputStyle></OutputStyle><OutputFolder></OutputFolder><OutputFilename></OutputFilename><SilentMode>true</SilentMode><Style>Mark to Market Valuation</Style><Sequence>Department/Cmy 3/Cmy 2/Shipment Period</Sequence><ExcelStyle>true</ExcelStyle><PrintDetail>true</PrintDetail><ShowPlStr>Show Both Profits and Losses</ShowPlStr><CostStyle>Total</CostStyle></ITASReportInput>` (string)
