@@ -36,6 +36,174 @@ Model Header containing AccessToken
 # Group Data Processing Services
 ### TBC
 
+# Group DocMan
+
+## Document Details List [/DocMan/{TradingEntityId}/DocumentDetails/{DocType}/{Property}/{PropertyValue}]
+`GET` List of Document Details
+
+### List Document Details [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentId|Document ID|`number`||||
+|DocumentName|Document Name|`string`|200|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|DocType|Doc Type|`string`|30|||
+|CreatedOrigin|Created Origin|`string`|9|||
+|CounterpartyCode|Counterparty Code|`string`|10|||
+|ContractId|Contract Id|`string`|10|||
+|DocumentReference|Document Reference|`string`|9|||
+|WIPAccountCode|WIP Account Code|`string`|11|||
+|CommodityCode|Principal Commodity Code|`string`|3|||
+|DocumentDate|Document Date|`datetime`||||
+|Verified|Verified|`boolean`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Parameters
+    + TradingEntityId (optional, string, `JT`) ... identify specific trading entity id
+    + DocType (optional, string, `TRADEDOCS` ) ... identify specific doctype
+    + Property (optional, enum[string]) ... identify property name to filter by 
+       + Members
+            + CreatedOrigin (optional, string)
+            + CounterpartyCode (optional, string)
+            + ContractId (optional, string)
+            + DocumentReference (optional, string)
+            + WIPAccountCode (optional, string)
+            + CommodityCode (optional, string)
+            + Verified (optional, string)
+    + PropertyValue (optional, number, `TRADE`)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array[DocManDocDetailsList])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadPropertyResponse)
+    
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+## Document Details [/DocMan/DocumentDetails/{DocumentId}/]
+`GET` Document Details
+
+### Read Document Details [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentId|Document ID|`number`||||
+|DocumentName|Document Name|`string`|200|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|LockedBy|Locked By|`string`|255|||
+|DocType|Doc Type|`string`|30|||
+|CreatedBy|see <b><a href="/#reference/data-object-definitions/user-account">UserAccount</a></b> object|`object`||||
+|CreatedDateTime|Created Date|`datetime`||||
+|LastModifiedBy|see <b><a href="/#reference/data-object-definitions/user-account">UserAccount</a></b> object|`object`||||
+|LastModifiedDateTime|LastModified Date|`datetime`||||
+|LastModifiedOrigin|Last Modified Origin|`string`|3|||
+|LastIndexedBy|see <b><a href="/#reference/data-object-definitions/user-account">UserAccount</a></b> object|`object`||||
+|LastIndexedDateTime|Last Indexed Date|`datetime`||||
+|LastIndexedSetDate|Last Indexed Set Date|`datetime`||||
+|LastIndexedModifiedBy|see <b><a href="/#reference/data-object-definitions/user-account">UserAccount</a></b> object|`object`||||
+|LastIndexedModifiedTime|Last Indexed Modified Time|`string`|5|||
+|Version|Version|`number`||||
+|CreatedOrigin|Created Origin|`string`|9|||
+|Deleted|Deleted|`boolean`||||
+|Counterparty|see <b><a href="/#reference/data-object-definitions/accountheader">Account Header</a></b> object|`object`||||
+|ContractId|Contract Id|`string`|10|||
+|DocumentReference|Document Reference|`string`|9|||
+|WIPAccount|see <b><a href="/#reference/data-object-definitions/wip-account">WIP Account</a></b> object|`object`||||
+|CommodityCode|Principal Commodity Code|`string`|3|||
+|CommodityOrigin|Commodity Origin|`string`|6|||
+|CommodityGrade|Commodity Grade|`string`|6|||
+|Container|Container|`string`|250|||
+|VesselName|Vessel Name|`string`|30|||
+|Memo|Memorandum|`string`|8000|||
+|ShortDescription|Short Description|`string`|40|||
+|TemplateFolder|Template Folder|`string`|40|||
+|TemplateName|Template Name|`string`|255|||
+|GroupNumber|Group Number|`string`|6|||
+|EmailForward|Email Forward|`string`|255|||
+|EmailSubject|Email Subject|`string`|255|||
+|Protected|Protected|`boolean`||||
+|DocumentDate|Document Date|`datetime`||||
+|Verified|Verified|`boolean`||||
+|VerifiedDate|Verified Date|`datetime`||||
+|VerifiedBy|see <b><a href="/#reference/data-object-definitions/user-account">UserAccount</a></b> object|`object`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Parameters
+    + DocumentId (required, number, `12345`) ... Identify specific document id.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (DocManDocDetails)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 DocumentIdResponse)
+
+
+
+## Document Indexing [/DocMan/IndexDocument]
+`POST` Index Document
+
+### Index Document [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|<b>Model</b>||||||
+|DocumentName|Document Name|`string`|200|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|DocumentType|Document Type|`string`|30|||
+|CounterpartyCode|Counterparty Code|`string`|10|||
+|ContractId|Contract ID|`string`|10|||
+|DocumentReference|Document Reference|`string`|9|||
+|WIPAccountCode|WIP Account Code|`string`|11|||
+|CommodityCode|Pricipal Commodity Code|`string`|3|||
+|PhysicalPath|Physical Path|`string`|200|||
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|IndexId|Index ID|`number`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
+    + Attributes (IndexDocument)
+
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (IndexId)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json)
+    + Attributes (400 StatusResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 NotFound)
+
+
+
+
 # Group ITAS Data Query Service
 
 ## ITAS Entity Data Query [/Query]
@@ -569,6 +737,15 @@ Data endpoints for Trade Valuation
 + Severity: Error (string)
 + Message: `API5067 - API : The value {inputValue} does not exist.` (string)
 
+## 404 DocumentIdResponse (object)
++ Response
+    + Value: 404 Object not found (string)
++ Messages (array[404 ErrorMessageRequestIdMessage])
+
+## 404 ErrorMessageDocumentIdMessage (object)
++ Severity: Error (string)
++ Message: `API5067 - API : The value {DocumentId} sent as the DocumentId does not exist.` (string)
+
 ## 404 Response (object)
 + Response
     + Value: 404 Object not found (string)
@@ -595,6 +772,7 @@ Data endpoints for Trade Valuation
 ## 404 ErrorMessageRequestIdMessage (object)
 + Severity: Error (string)
 + Message: `API5067 - API : The value {RequestId} sent as the RequestId does not exist.` (string)
+
 
 ## 404 ServiceResponse (object)
 + Response
@@ -642,8 +820,82 @@ Data endpoints for Trade Valuation
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
 
+## DocManDocDetails (object)
++ DocumentId: 12345 (number) 
++ DocumentName: `20180113_ADIL01_WHS.RTF` (string)
++ TradingEntityId: JT (string)
++ LockedBy: Application AA (string)
++ DocType: TRADEDOCS (string)
++ CreatedBy (UserAccount)
++ CreatedDateTime: `2017-12-01T15:30:00Z` (string)
++ LastModifiedBy (UserAccount)
++ LastModifiedDateTime: `2017-12-10T15:35:00Z` (string)
++ LastModifiedOrigin: J21 (string)
++ LastIndexedBy (UserAccount)
++ LastIndexedDate: `2017-12-10T15:40:00Z` (string)
++ LastIndexedSetDate: `2017-12-10T00:00:00Z` (string)
++ LastIndexedModifiedBy (UserAccount)
++ LastIndexedModifiedTime: `17:31` (string)
++ Version: 2 (number)
++ CreatedOrigin: TRADE (string)
++ Deleted: false (boolean)
++ Counterparty: (AccountHeader)
++ ContractId: `P00001.000` (string)
++ DocumentReference: PI1574747 (string)
++ WIPAccount (WIPAccount)
++ CommodityCode: ORG (string)
++ CommodityOrigin: WHITE (string)
++ CommodityGrade: FAIRTR (string)
++ Container: Unit2 (string)
++ VesselName: Barge 1 (string)
++ Memo: Example Memo (string)
++ ShortDescription: Example Short descr (string)
++ TemplateFolder: Folder 1 (string)
++ TemplateName: Documents Folder 1 (string)
++ GroupNumber: 12 (number)
++ EmailForward: `jsmith@example.com` (string)
++ EmailSubject: Documents in folder (string)
++ Protected: true (boolean)
++ DocumentDate: `2017-12-10T00:00:00Z` (string)
++ Verified: true (boolean)
++ VerifiedDate: `2017-12-09T00:00:00Z` (string)
++ VerifiedBy: (UserAccount)
+
+## DocManDocDetailsList (object)
++ DocumentId: 12345 (number) 
++ DocumentName: `20180113_ADIL01_WHS.RTF` (string)
++ TradingEntityId: JT (string)
++ DocType: TRADEDOCS (string)
++ CreatedOrigin: TRADE (string)
++ CounterpartyCode: `NEWACC30.P` (string)
++ ContractId: `P00001.000` (string)
++ DocumentReference: PI1574747 (string)
++ WIPAccountCode: `0001.000` (string)
++ CommodityCode: ORG (string)
++ DocumentDate: `2017-12-10T00:00:00Z` (string)
++ Verified: true (boolean)
+
+## DocumentId (object)
++ DocumentId: 12345 (number)
+
+## IndexDocument (object)
++ Model (Model)
+
+## IndexId (object)
++ IndexId: 100 (number)
+
 ## JobId (object)
 + JobRef: Job1 (string)
+
+## Model (object)
++ DocumentName: `20180113_ADIL01_WHS.RTF` (string)
++ TradingEntityId: JT (string)
++ DocumentType: TRADEDOCS (string)
++ CounterpartyCode: `NEWACC30.P` (string)
++ ContractId: `P00001.000` (string)
++ DocumentReference: PI1574747 (string)
++ WIPAccountCode: `0001.000` (string)
++ PhysicalPath: `\\\\hivedome-fs01\\itas\\Comp\\DroppedFiles\\JT\\TRADEDOCS\\ITAS_NG.20180220.log` (string)
 
 ## Pagination (object)
 + Total: 250 (number) - total number of records available
