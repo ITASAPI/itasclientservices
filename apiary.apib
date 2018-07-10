@@ -227,30 +227,30 @@ See Example panel for the example response body
 
     + Body
     {
-    Departments(TradingEntityIds : ["jt", "qa"], Top: 200, Skip: 100)
-    {
-    DepartmentId
-    DepartmentDescription
-    NominalCategory
-            {
-            NominalCategoryId
-            NominalCategoryDescription
-            NominalGroup
-            }
-    Country
+        Departments(TradingEntityIds : ["jt", "qa"], Top: 200, Skip: 100)
         {
-        CountryId
-        CountryDescription
+            DepartmentId
+            DepartmentDescription
+            NominalCategory
+            {
+                NominalCategoryId
+                NominalCategoryDescription
+                NominalGroup
+            }
+            Country
+            {
+                CountryId
+                CountryDescription
+            }
+            EDICode
+            Status
         }
-    EDICode
-    Status
-    }
     }
 
 + Response 200 (text/plain)
 
-{
-  "Data": {
+    {
+    "Data": {
     "Departments": [
       {
         "TradingEntityId": "jt",
