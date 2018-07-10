@@ -227,59 +227,65 @@ See Example panel for the example response body
 
 
     + Body
-        {
+    {
         Departments(TradingEntityIds : ["jt", "qa"], Top: 200, Skip: 100)
         {
-        DepartmentId
-        DepartmentDescription
-        NominalCategory
-        {
-        NominalCategoryId
-        NominalCategoryDescription
-        NominalGroup
+            DepartmentId
+            DepartmentDescription
+            NominalCategory
+            {
+                NominalCategoryId
+                NominalCategoryDescription
+                NominalGroup
+            }
+            Country
+            {
+                CountryId
+                CountryDescription
+            }
+            EDICode
+            Status
         }
-        Country
-        {
-        CountryId
-        CountryDescription
-        }
-        EDICode
-        Status
-        }
-        }
+    }
 
 + Response 200 (text/plain)
 
         {
-        "Data": {
-        "Departments": [
-        {
-        "TradingEntityId": "jt",
-        "DepartmentId": "1111",
-        "DepartmentDescription": "Department 1111",
-        "NominalCategory": {
-        "NominalCategoryId": "AA",
-        "NominalCategoryDescription": "AA Trading",
-        "NominalGroup": "BB"
-        },
-        "Country": {
-        "CountryId": "GB",
-        "CountryDescription": "Great Britain"
-        },
-        "EDICode": "EDI1234",
-        "Status": "O"
-        },
-        ]
-        },
-        "Response": {
-        "Value": "Success"
-        },
-        "PaginationInfo": {
-        "Total": 250,
-        "Top": 200,
-        "Skip": 100,
-        "Returned": 150
-        }
+            "Data": 
+            {
+                "Departments": 
+                [
+                {
+                    "TradingEntityId": "jt",
+                    "DepartmentId": "1111",
+                    "DepartmentDescription": "Department 1111",
+                    "NominalCategory": 
+                    {
+                        "NominalCategoryId": "AA",
+                        "NominalCategoryDescription": "AA Trading",
+                        "NominalGroup": "BB"
+                    },
+                    "Country": 
+                    {
+                    "CountryId": "GB",
+                    "CountryDescription": "Great Britain"
+                    },
+                    "EDICode": "EDI1234",
+                    "Status": "O"
+                },
+                ]
+            },
+            "Response":
+            {
+                "Value": "Success"
+            },
+            "PaginationInfo": 
+            {
+                "Total": 250,
+                "Top": 200,
+                "Skip": 100,
+                "Returned": 150
+            }
         }
 
 + Response 400 (application/json; charset=utf-8)
