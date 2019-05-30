@@ -248,45 +248,11 @@ See Example panel for the example response body
             }
         }
 
-+ Response 200 (text/plain)
-
-        {
-            "Data": 
-            {
-                "Departments": 
-                [
-                {
-                    "TradingEntityId": "jt",
-                    "DepartmentId": "1111",
-                    "DepartmentDescription": "Department 1111",
-                    "NominalCategory": 
-                    {
-                        "NominalCategoryId": "AA",
-                        "NominalCategoryDescription": "AA Trading",
-                        "NominalGroup": "BB"
-                    },
-                    "Country": 
-                    {
-                    "CountryId": "GB",
-                    "CountryDescription": "Great Britain"
-                    },
-                    "EDICode": "EDI1234",
-                    "Status": "O"
-                },
-                ]
-            },
-            "Response":
-            {
-                "Value": "Success"
-            },
-            "PaginationInfo": 
-            {
-                "Total": 250,
-                "Top": 200,
-                "Skip": 100,
-                "Returned": 150
-            }
-        }
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [DQSDepartments])
+        + Response (200 SuccessResponse)
+        + Pagination (Pagination)
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 ResponseDQS)
@@ -971,6 +937,9 @@ A multipurpose object used by several endpoints
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
 
+## Country (object)
++ CountryId: GB (string)
++ CountryDescription: Great Britain (string)
 
 ## DataFactoryExport (object)
 + Request: `<?xml version="1.0"?><PackageInput DFname="TestPackage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://itashelp.hivedome.net/media/inpTestPackage.xsd"> <TradingEntityCode>xx</TradingEntityCode><CutOffDate>2018-04-30</CutOffDate></PackageInput>` (string)
@@ -1039,6 +1008,15 @@ A multipurpose object used by several endpoints
 ## DocumentId (object)
 + DocumentId: 12345 (number)
 
+## DQSDepartments (object)
++ TradingEntityId: jt (string)
++ DepartmentId: 1111 (string)
++ DepartmentDescription: Department 1111 (string)
++ NominalCategory (NominalCategory)
++ Country (Country)
++ EDICode: EDI1234 (string)
++ Status: O (string)
+
 ## IndexDocument (object)
 + Model (Model)
 
@@ -1058,6 +1036,11 @@ A multipurpose object used by several endpoints
 + WIPAccountCode: `0001.000` (string)
 + PhysicalPath: `\\\\hivedome-fs01\\itas\\Comp\\DroppedFiles\\JT\\TRADEDOCS\\ITAS_NG.20180220.log` (string)
 + IndexedBy: JRH (string)
+
+## NominalCategory (object)
++ NominalCategoryId: AA (string)
++ NominalCategoryDescription: AA Trading (string)
++ NominalGroup: BB (string)
 
 ## Pagination (object)
 + Total: 250 (number) - total number of records available
